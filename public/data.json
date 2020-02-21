@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Shirt",
+      "description": "Product code X7R2OPX",
+      "image": "shirt.png",
+      "price": 20
+    },
+    {
+      "id": 2,
+      "name": "Mug",
+      "description": "Product code X2G2OPZ",
+      "image": "mug.png",
+      "price": 5
+    },
+    {
+      "id": 3,
+      "name": "Cap",
+      "description": "Product code X3W2OPY",
+      "image": "cap.png",
+      "price": 10
+    }
+  ]
+}
