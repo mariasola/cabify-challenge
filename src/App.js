@@ -15,17 +15,19 @@ class App extends React.Component {
         Cap: 0
       }
     };
-    console.log(this.state.quantity);
+    this.handleEvent = this.handleEvent.bind(this);
   }
   componentDidMount() {
     getData().then(products => {
       this.setState({ products });
     });
   }
-  handleEvent(donde, cantidad) {
-    const quantity = {...this.state.quantity, donde : cantidad } ;
+  
+  handleEvent(item, number) {
+    console.log(item, number);
+    const quantity = {...this.state.quantity, [item] : number } ;
 
-    this.setState(quantity);
+    this.setState({ quantity });
   }
 
   render() {
