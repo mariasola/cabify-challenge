@@ -3,22 +3,32 @@ import React from "react";
 class Summary extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
   renderPrices() {
     let quantity = 0;
-    console.log(this.props);
+
+    console.log(Object.values(this.props.quantity));
     // this.props.products.map(())
   }
-  toggleProducts() {
-    console.log(this.props.quantity.Mug + this.props.quantity.Cab);
-  }
+  toggleProducts = () => {
+    let itemsArray = Object.values(this.props.quantity);
+    // let items = 0;
+
+    const addItems = itemsArray.reduce((acc, item) => acc + item, 0);
+    console.log(addItems);
+    return addItems;
+  };
+
   render() {
     return (
       <aside className="summary">
         <h1 className="main">Order Summary</h1>
         <ul className="summary-items wrapper border">
           <li>
-            <span className="summary-items-number">11 Items</span>
+            <span className="summary-items-number">
+              {this.toggleProducts} Items
+            </span>
             <span className="summary-items-price">
               {this.renderPrices}
               <span className="currency">€</span>
