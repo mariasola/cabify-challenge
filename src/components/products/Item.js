@@ -1,28 +1,26 @@
 import React from "react";
 
-
 const Item = props => {
   const { products, handleEvent, quantity } = props;
-  
-  const addProduct = (ev)=> {
-    handleChange()
-  }
-  const removeProduct = (ev)=> {
-    handleChange();
-  }
-  
-  const handleChange = () => {
-   handleEvent(products.name, quantity[products.name]+1)
-  }
 
-  // const handleChange = () => {
-  //   if(addProduct===true){
-  //     handleEvent(products.name, quantity[products.name]+1)
-  //   }if (removeProduct===true){
-  //     handleEvent(products.name, quantity[products.name]-1)
-  //   }
-  // }
- 
+  const increaseProduct = ev => {
+    handleEvent(products.name, quantity[products.name] + 1);
+  };
+  const decreaseProduct = ev => {
+    if (quantity[products.name] > 0) {
+      handleEvent(products.name, quantity[products.name] - 1);
+    }
+  };
+
+  const setProductQuantity = ev => {
+    const quantity = parseInt(ev.target.value);
+    if (isNaN(quantity)) {
+      handleEvent(products.name, 0);
+    } else {
+      handleEvent(products.name, quantity);
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="col-product">
@@ -38,14 +36,16 @@ const Item = props => {
         </figure>
       </div>
       <div className="col-quantity">
-        <button className="count" onClick={removeProduct}>-</button>
+        <button className="count" onClick={decreaseProduct}>
+          -
+        </button>
         <input
           type="value"
           className="product-quantity"
-          onChange={handleChange}
+          onChange={setProductQuantity}
           value={quantity[products.name]}
         />
-        <button className="count" onClick={addProduct}>
+        <button className="count" onClick={increaseProduct}>
           +
         </button>
       </div>
@@ -54,12 +54,13 @@ const Item = props => {
         <span className="product-currency currency">€</span>
       </div>
       <div className="col-total">
-  <span className="product-price">{quantity[products.name]*products.price}</span>
+        <span className="product-price">
+          {quantity[products.name] * products.price}
+        </span>
         <span className="product-currency currency">€</span>
       </div>
     </React.Fragment>
   );
-
-}
+};
 
 export default Item;

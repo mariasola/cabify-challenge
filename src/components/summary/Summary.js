@@ -4,6 +4,14 @@ class Summary extends React.Component {
   constructor(props) {
     super(props);
   }
+  renderPrices() {
+    let quantity = 0;
+    console.log(this.props);
+    // this.props.products.map(())
+  }
+  toggleProducts() {
+    console.log(this.props.quantity.Mug + this.props.quantity.Cab);
+  }
   render() {
     return (
       <aside className="summary">
@@ -12,7 +20,8 @@ class Summary extends React.Component {
           <li>
             <span className="summary-items-number">11 Items</span>
             <span className="summary-items-price">
-              120<span className="currency">€</span>
+              {this.renderPrices}
+              <span className="currency">€</span>
             </span>
           </li>
         </ul>

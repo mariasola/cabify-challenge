@@ -22,10 +22,9 @@ class App extends React.Component {
       this.setState({ products });
     });
   }
-  
+
   handleEvent(item, number) {
-    console.log(item, number);
-    const quantity = {...this.state.quantity, [item] : number } ;
+    const quantity = { ...this.state.quantity, [item]: number };
 
     this.setState({ quantity });
   }
@@ -35,10 +34,11 @@ class App extends React.Component {
     return (
       <main className="App">
         <ProductList
-          products={products} quantity={quantity}
+          products={products}
+          quantity={quantity}
           handleEvent={this.handleEvent}
         ></ProductList>
-        <Summary></Summary>
+        <Summary handleEvent={this.handleEvent} quantity={quantity}></Summary>
       </main>
     );
   }
