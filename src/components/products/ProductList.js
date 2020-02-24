@@ -6,7 +6,7 @@ const ProductList = props => {
     return props.products.map(products => {
       return (
         <li className="product row" key={products.id}>
-          <Item handleEvent={props.handleEvent} products={products} />
+          <Item handleEvent={props.handleEvent} products={products} quantity={props.quantity} />
         </li>
       );
     });

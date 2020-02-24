@@ -10,9 +10,9 @@ class App extends React.Component {
     this.state = {
       products: [],
       quantity: {
-        shirt: 0,
-        mug: 0,
-        cub: 0
+        Shirt: 0,
+        Mug: 0,
+        Cap: 0
       }
     };
     console.log(this.state.quantity);
@@ -22,16 +22,18 @@ class App extends React.Component {
       this.setState({ products });
     });
   }
-  handleEvent(ev) {
-    this.setState({ quantity: ev.target.value });
+  handleEvent(donde, cantidad) {
+    const quantity = {...this.state.quantity, donde : cantidad } ;
+
+    this.setState(quantity);
   }
 
   render() {
-    const { products } = this.state;
+    const { products, quantity } = this.state;
     return (
       <main className="App">
         <ProductList
-          products={products}
+          products={products} quantity={quantity}
           handleEvent={this.handleEvent}
         ></ProductList>
         <Summary></Summary>
