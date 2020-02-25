@@ -3,15 +3,7 @@ import React from "react";
 class Summary extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
-  // renderPrices() {
-  //   let quantity = 0;
-
-  //   console.log(Object.values(this.props.quantity));
-  //   // this.props.products.map(())
-  // }
-
   render() {
     return (
       <aside className="summary">

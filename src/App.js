@@ -32,27 +32,42 @@ class App extends React.Component {
     this.sumProducts();
     this.sumTotalAmount();
 
-    this.setState({ quantity });
+    this.setState(
+      { quantity }, 
+      () => {
+      console.log("HandleEvent guarda:", this.state.quantity); 
+      }
+    );
   }
   sumProducts() {
-    let total=0;
+    let total="";
     let itemsArray = Object.values(this.state.quantity);
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     total=(itemsArray.reduce(reducer));
-    this.setState({
+    console.log(itemsArray);
+    this.setState(
+      {
       totalItems: total
-    });
-    console.log(this.state.products)
-    console.log('Funciono');
+      },
+      () => {
+        console.log("SumProducts hace lo que quiere:", this.state.totalItems);
+      }
+    );
+    
   };
   sumTotalAmount(){
-    let total=0;
-    // this.state.products.map(products =>{total += products.price * this.props.quantity[products.name]})
-    
+    let sumTotal=0;
+    this.state.products.forEach(element => {
+      for(let key in this.state.quantity){
+        if(key === element.name){
+        sumTotal= sumTotal+(element.price*this.state.quantity[key])
+        }
+      }
+    }
+    );
     this.setState({
-      totalAmount: total
+      totalAmount: sumTotal
     });
-    console.log(this.state.products)
   }
   
   render() {
