@@ -5,20 +5,12 @@ class Summary extends React.Component {
     super(props);
     console.log(this.props);
   }
-  renderPrices() {
-    let quantity = 0;
+  // renderPrices() {
+  //   let quantity = 0;
 
-    console.log(Object.values(this.props.quantity));
-    // this.props.products.map(())
-  }
-  toggleProducts = () => {
-    let itemsArray = Object.values(this.props.quantity);
-    // let items = 0;
-
-    const addItems = itemsArray.reduce((acc, item) => acc + item, 0);
-    console.log(addItems);
-    return addItems;
-  };
+  //   console.log(Object.values(this.props.quantity));
+  //   // this.props.products.map(())
+  // }
 
   render() {
     return (
@@ -27,10 +19,10 @@ class Summary extends React.Component {
         <ul className="summary-items wrapper border">
           <li>
             <span className="summary-items-number">
-              {this.toggleProducts} Items
+              {this.props.totalItems} Items
             </span>
             <span className="summary-items-price">
-              {this.renderPrices}
+              {this.props.totalAmount}
               <span className="currency">€</span>
             </span>
           </li>
