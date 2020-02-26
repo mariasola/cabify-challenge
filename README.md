@@ -19,38 +19,38 @@ This is Cabify's Checkout Cart, where you can find three products available with
 
 ## Project structure:
 
-Cabify-shopping-cart-challenge
-├── .gitignore
-├── package.json
-├── README.MD
-├── example.png
-├── node_modules
-│   ├── react
-│   └── react-dom
-├── public
-│   └── index.html
-│   └── data.json
-│   └── manifest.json
-│   └── favicon.ico
-└── src
-    ├── images
-    │   └── background.png
-    │   └── cap.png
-    │   └── mug.png
-    │   └── shirt.png
-    ├── stylesheets
-    │   ├── index.scss
-    │   └── App.scss
-    ├── components
-    │   └── detail
-    │       └── Detail.js
-    │   └── products
-    │       └── Item.js
-    │       └── ProductList.js
-    │   └── summary
-    │       └── Summary.js
-    ├── App.js
-    └── index.js
+**Cabify-shopping-cart-challenge**<br/>
+├── .gitignore<br/>
+├── package.json<br/>
+├── README.MD<br/>
+├── example.png<br/>
+├── node_modules<br/>
+│   ├── react<br/>
+│   └── react-dom<br/>
+├── public<br/>
+│   └── index.html<br/>
+│   └── data.json<br/>
+│   └── manifest.json<br/>
+│   └── favicon.ico<br/>
+└── src<br/>
+    ├── images<br/>
+    │   └── background.png<br/>
+    │   └── cap.png<br/>
+    │   └── mug.png<br/>
+    │   └── shirt.png<br/>
+    ├── stylesheets<br/>
+    │   ├── index.scss<br/>
+    │   └── App.scss<br/>
+    ├── components<br/>
+    │   └── detail<br/>
+    │       └── Detail.js<br/>
+    │   └── products<br/>
+    │       └── Item.js<br/>
+    │       └── ProductList.js<br/>
+    │   └── summary<br/>
+    │       └── Summary.js<br/>
+    ├── App.js<br/>
+    └── index.js<br/>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
