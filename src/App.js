@@ -18,12 +18,15 @@ class App extends React.Component {
         Cap: 0
       },
       showDetail:false,
-      productSelected:{}
+      productSelected:{},
+      mugDiscount:0,
+      shirtDiscount:0
     };
     this.handleEvent = this.handleEvent.bind(this);
     this.sumProducts = this.sumProducts.bind(this);
     this.sumTotalAmount = this.sumTotalAmount.bind(this);
     this.handleDetail = this.handleDetail.bind(this);
+    this.handleDiscounts = this.handleDiscounts.bind(this);
   }
   componentDidMount() {
     getData().then(products => {
@@ -35,6 +38,7 @@ class App extends React.Component {
     const quantity = { ...this.state.quantity, [item]: number };
     this.sumProducts();
     this.sumTotalAmount();
+    this.handleDiscounts();
 
     this.setState(
       { quantity }, 
@@ -48,7 +52,6 @@ class App extends React.Component {
     let itemsArray = Object.values(this.state.quantity);
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     total=(itemsArray.reduce(reducer));
-    console.log(itemsArray);
     this.setState(
       {
       totalItems: total
@@ -82,8 +85,23 @@ class App extends React.Component {
   closeDetail= () =>{
     this.setState({ showDetail: false});
   }
+  handleDiscounts(){
+    let mugDiscount=0;
+    let shirtDiscount=0;
+    if(this.state.quantity.Mug % 2 ===0){
+       mugDiscount= (this.state.quantity.Mug*5)/2
+    }
+    if (this.state.quantity.Shirt>=3){
+       shirtDiscount=(this.state.quantity.Shirt*20)*0.05;
+     }
+    this.setState(
+      {
+        mugDiscount: mugDiscount,
+        shirtDiscount: shirtDiscount
+      })
+  }
   render() {
-    const { products, quantity, totalItems,totalAmount,productSelected, closeDetail } = this.state;
+    const { products, quantity, totalItems,totalAmount,productSelected, mugDiscount, shirtDiscount} = this.state;
     return (
       <main className="App">
         <ProductList
@@ -92,7 +110,7 @@ class App extends React.Component {
           handleEvent={this.handleEvent}
           handleDetail={this.handleDetail}
         ></ProductList>
-        <Summary totalAmount={totalAmount}  totalItems={totalItems} ></Summary>
+        <Summary mugDiscount={mugDiscount} shirtDiscount={shirtDiscount}  totalAmount={totalAmount}  totalItems={totalItems} ></Summary>
         {this.state.showDetail &&(
           <Detail closeDetail={this.closeDetail} productSelected={productSelected}/>
         )}

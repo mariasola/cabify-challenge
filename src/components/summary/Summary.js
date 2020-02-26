@@ -3,6 +3,7 @@ import React from "react";
 class Summary extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
   render() {
     return (
@@ -24,11 +25,11 @@ class Summary extends React.Component {
           <ul>
             <li>
               <span>2x1 Mug offer</span>
-              <span>-10€</span>
+              <span>-{this.props.mugDiscount}€</span>
             </li>
             <li>
               <span>x3 Shirt offer</span>
-              <span>-3€</span>
+              <span>-{this.props.shirtDiscount}€</span>
             </li>
             <li>
               <span>Promo code</span>
@@ -40,7 +41,7 @@ class Summary extends React.Component {
           <ul>
             <li>
               <span className="summary-total-cost">Total cost</span>
-              <span className="summary-total-price">107€</span>
+              <span className="summary-total-price">{this.props.totalAmount-(this.props.mugDiscount+this.props.shirtDiscount)}€</span>
             </li>
           </ul>
           <button type="submit">Checkout</button>
