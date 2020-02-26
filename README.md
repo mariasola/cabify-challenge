@@ -4,9 +4,9 @@ This is Cabify's Checkout Cart, where you can find three products available with
 ![Example image](./example.png?raw=true)
 
 :shopping_cart: Shopping cart **logic**:
-    - Add/Remove product card items using the +/- buttons.
-    - Calculate the totals of each product and the summary total accordingly.
-    - All totals in order summary should be updated whenever a product is added or removed.
+    - Add/Remove product card items using the +/- buttons.<br>
+    - Calculate the totals of each product and the summary total accordingly.<br>
+    - All totals in order summary should be updated whenever a product is added or removed.<br>
 
 :rocket: **Bonus**   
 
