@@ -2,6 +2,7 @@ import React from "react";
 import getData from "./services/getData";
 import ProductList from "./components/products/ProductList";
 import Summary from "./components/summary/Summary";
+import Detail from "./components/detail/Detail";
 import "./styles/App.scss";
 
 class App extends React.Component {
@@ -15,11 +16,14 @@ class App extends React.Component {
         Shirt: 0,
         Mug: 0,
         Cap: 0
-      }
+      },
+      showDetail:false,
+      productSelected:{}
     };
     this.handleEvent = this.handleEvent.bind(this);
     this.sumProducts = this.sumProducts.bind(this);
     this.sumTotalAmount = this.sumTotalAmount.bind(this);
+    this.handleDetail = this.handleDetail.bind(this);
   }
   componentDidMount() {
     getData().then(products => {
@@ -69,17 +73,29 @@ class App extends React.Component {
       totalAmount: sumTotal
     });
   }
-  
+  handleDetail=(products)=>{
+    this.setState({
+      productSelected: products,
+      showDetail:true
+    })
+  }
+  closeDetail= () =>{
+    this.setState({ showDetail: false});
+  }
   render() {
-    const { products, quantity, totalItems,totalAmount } = this.state;
+    const { products, quantity, totalItems,totalAmount,productSelected, closeDetail } = this.state;
     return (
       <main className="App">
         <ProductList
           products={products}
           quantity={quantity}
           handleEvent={this.handleEvent}
+          handleDetail={this.handleDetail}
         ></ProductList>
         <Summary totalAmount={totalAmount}  totalItems={totalItems} ></Summary>
+        {this.state.showDetail &&(
+          <Detail closeDetail={this.closeDetail} productSelected={productSelected}/>
+        )}
       </main>
     );
   }

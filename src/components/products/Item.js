@@ -1,7 +1,7 @@
 import React from "react";
 
 const Item = props => {
-  const { products, handleEvent, quantity } = props;
+  const { products, handleEvent, quantity, handleDetail } = props;
 
   const increaseProduct = ev => {
     handleEvent(products.name, quantity[products.name] + 1);
@@ -25,10 +25,12 @@ const Item = props => {
     <React.Fragment>
       <div className="col-product">
         <figure className="product-image">
+          <button className="product-button" onClick={() =>handleDetail(products)}>
           <img
             src={require(`../../images/${products.image}`)}
             alt={products.name}
           />
+          </button>
           <div className="product-description">
             <h1>{products.name}</h1>
             <p className="product-code">{products.description}</p>
