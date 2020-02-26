@@ -3,7 +3,7 @@ This is Cabify's Checkout Cart, where you can find three products available with
 
 ![Example image](./example.png?raw=true)
 
-:shopping_cart: Shopping cart **logic**:
+:shopping_cart: Shopping cart **logic**:<br>
     - Add/Remove product card items using the +/- buttons.<br>
     - Calculate the totals of each product and the summary total accordingly.<br>
     - All totals in order summary should be updated whenever a product is added or removed.<br>
@@ -16,6 +16,42 @@ This is Cabify's Checkout Cart, where you can find three products available with
     We would like to add some discounts to our products. Choose one or both and add them in your implementation:
         * 2-for-1 promotions: buy two of the same product, get one free, applied to `MUG` items.
         * bulk discounts: buying 3 or more of `TSHIRT` product, the price of that product is reduced 5%. E.g., if you buy 3 or more `TSHIRT` items, the price per unit should be 19.00€.
+
+## Project structure:
+
+Cabify-shopping-cart-challenge
+├── .gitignore
+├── package.json
+├── README.MD
+├── example.png
+├── node_modules
+│   ├── react
+│   └── react-dom
+├── public
+│   └── index.html
+│   └── data.json
+│   └── manifest.json
+│   └── favicon.ico
+└── src
+    ├── images
+    │   └── background.png
+    │   └── cap.png
+    │   └── mug.png
+    │   └── shirt.png
+    ├── stylesheets
+    │   ├── index.scss
+    │   └── App.scss
+    ├── components
+    │   └── detail
+    │       └── Detail.js
+    │   └── products
+    │       └── Item.js
+    │       └── ProductList.js
+    │   └── summary
+    │       └── Summary.js
+    ├── App.js
+    └── index.js
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
