@@ -17,41 +17,6 @@ This is Cabify's Checkout Cart, where you can find three products available with
         * 2-for-1 promotions: buy two of the same product, get one free, applied to `MUG` items.
         * bulk discounts: buying 3 or more of `TSHIRT` product, the price of that product is reduced 5%. E.g., if you buy 3 or more `TSHIRT` items, the price per unit should be 19.00€.
 
-## Project structure:
-
-**Cabify-shopping-cart-challenge**<br/>
-├── .gitignore<br/>
-├── package.json<br/>
-├── README.MD<br/>
-├── example.png<br/>
-├── node_modules<br/>
-│   ├── react<br/>
-│   └── react-dom<br/>
-├── public<br/>
-│   └── index.html<br/>
-│   └── data.json<br/>
-│   └── manifest.json<br/>
-│   └── favicon.ico<br/>
-└── src<br/>
-    ├── images<br/>
-    │   └── background.png<br/>
-    │   └── cap.png<br/>
-    │   └── mug.png<br/>
-    │   └── shirt.png<br/>
-    ├── stylesheets<br/>
-    │   ├── index.scss<br/>
-    │   └── App.scss<br/>
-    ├── components<br/>
-    │   └── detail<br/>
-    │       └── Detail.js<br/>
-    │   └── products<br/>
-    │       └── Item.js<br/>
-    │       └── ProductList.js<br/>
-    │   └── summary<br/>
-    │       └── Summary.js<br/>
-    ├── App.js<br/>
-    └── index.js<br/>
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
