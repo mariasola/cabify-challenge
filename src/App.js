@@ -54,11 +54,8 @@ class App extends React.Component {
   sumTotalAmount() {
     let sumTotal = 0;
     this.state.products.forEach(element => {
-      for (let key in this.state.quantity) {
-        if (key === element.name) {
-          sumTotal = sumTotal + element.price * this.state.quantity[key];
-        }
-      }
+      let key= this.state.quantity[element.name];
+      sumTotal = sumTotal + element.price * key;
     });
     this.setState({
       totalAmount: sumTotal
